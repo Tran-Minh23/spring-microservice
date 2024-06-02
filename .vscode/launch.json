@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CurrencyExchangeServiceApplication",
+            "request": "launch",
+            "mainClass": "com.mink.currency_exchange_service.CurrencyExchangeServiceApplication",
+            "projectName": "currency-exchange-service",
+            "vmArgs": "-Dserver.port=8000"
+        },
+        {
+            "type": "java",
+            "name": "CurrencyExchangeServiceApplication",
+            "request": "launch",
+            "mainClass": "com.mink.currency_exchange_service.CurrencyExchangeServiceApplication",
+            "projectName": "currency-exchange-service",
+            "vmArgs": "-Dserver.port=8001"
+        },
+    ]
+}
