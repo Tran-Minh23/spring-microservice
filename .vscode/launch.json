@@ -1,20 +1,41 @@
 {
-    "configurations": [
-        {
-            "type": "java",
-            "name": "CurrencyExchangeServiceApplication",
-            "request": "launch",
-            "mainClass": "com.mink.currency_exchange_service.CurrencyExchangeServiceApplication",
-            "projectName": "currency-exchange-service",
-            "vmArgs": "-Dserver.port=8000"
-        },
-        {
-            "type": "java",
-            "name": "CurrencyExchangeServiceApplication",
-            "request": "launch",
-            "mainClass": "com.mink.currency_exchange_service.CurrencyExchangeServiceApplication",
-            "projectName": "currency-exchange-service",
-            "vmArgs": "-Dserver.port=8001"
-        },
-    ]
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ApiGatewayApplication",
+      "request": "launch",
+      "mainClass": "com.mink.api_gateway.ApiGatewayApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
+      "name": "NamingServerApplication",
+      "request": "launch",
+      "mainClass": "com.mink.naming_server.NamingServerApplication",
+      "projectName": "naming-server"
+    },
+    {
+      "type": "java",
+      "name": "CurrencyConversionServiceApplication",
+      "request": "launch",
+      "mainClass": "com.mink.currency_conversion_service.CurrencyConversionServiceApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
+      "name": "CurrencyExchangeServiceApplication",
+      "request": "launch",
+      "mainClass": "com.mink.currency_exchange_service.CurrencyExchangeServiceApplication",
+      "projectName": "currency-exchange-service",
+      "vmArgs": "-Dserver.port=8001"
+    },
+    {
+      "type": "java",
+      "name": "CurrencyExchangeServiceApplication",
+      "request": "launch",
+      "mainClass": "com.mink.currency_exchange_service.CurrencyExchangeServiceApplication",
+      "projectName": "currency-exchange-service",
+      "vmArgs": "-Dserver.port=8000"
+    }
+  ]
 }

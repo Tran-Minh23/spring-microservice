@@ -3,6 +3,7 @@ package com.mink.currency_exchange_service.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mink.currency_exchange_service.bean.CurrencyExchange;
+import com.mink.currency_exchange_service.jpa.CurrencyExchangeRepository;
 
 import java.math.BigDecimal;
 
@@ -14,14 +15,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class CurrencyExchangeController {
 
     private Environment environment;
+    private CurrencyExchangeRepository repository;
 
-    public CurrencyExchangeController(Environment environment) {
+    public CurrencyExchangeController(Environment environment, CurrencyExchangeRepository repository) {
         this.environment = environment;
+        this.repository = repository;
     }
 
     @GetMapping("currency-exchange/from/{from}/to/{to}")
     public CurrencyExchange retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
-        CurrencyExchange currencyExchange = new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(50));
+        CurrencyExchange currencyExchange = repository.findByFromAndTo(from, to);
+
+        if (currencyExchange == null) {
+            throw new RuntimeException("Unable to find data");
+        }
+
         String port = environment.getProperty("local.server.port");
         currencyExchange.setEnvironment(port);
 

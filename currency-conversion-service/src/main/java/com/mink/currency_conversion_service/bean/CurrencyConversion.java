@@ -1,35 +1,28 @@
-package com.mink.currency_exchange_service.bean;
+package com.mink.currency_conversion_service.bean;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
-public class CurrencyExchange {
-
-    @Id
+public class CurrencyConversion {
     private Long id;
-
-    @Column(name = "currency_from")
     private String from;
-
-    @Column(name = "currency_to")
     private String to;
-
+    private BigDecimal quantity;
     private BigDecimal conversionMultiple;
+    private BigDecimal totalCalculatedAmount;
     private String environment;
 
-    public CurrencyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
+    public CurrencyConversion() {
+    }
+
+    public CurrencyConversion(Long id, String from, String to, BigDecimal quantity, BigDecimal conversionMultiple,
+            BigDecimal totalCalculatedAmount, String environment) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.conversionMultiple = conversionMultiple;
-    }
-
-    public CurrencyExchange() {
-
+        this.quantity = quantity;
+        this.totalCalculatedAmount = totalCalculatedAmount;
+        this.environment = environment;
     }
 
     public Long getId() {
@@ -62,6 +55,22 @@ public class CurrencyExchange {
 
     public void setConversionMultiple(BigDecimal conversionMultiple) {
         this.conversionMultiple = conversionMultiple;
+    }
+
+    public BigDecimal getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(BigDecimal quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getTotalCalculatedAmount() {
+        return totalCalculatedAmount;
+    }
+
+    public void setTotalCalculatedAmount(BigDecimal totalCalculatedAmount) {
+        this.totalCalculatedAmount = totalCalculatedAmount;
     }
 
     public String getEnvironment() {
